@@ -48,32 +48,43 @@ public class CacheData {
 		return m_wordCounter;
 	}
 
-	public static void WriteToFile(String fileToWrite) throws IOException {
-		RandomAccessFile f = new RandomAccessFile(new File(fileToWrite), "rw");
+//	public static void WriteToFile(String fileToWrite) throws IOException {
+//		RandomAccessFile f = new RandomAccessFile(new File(fileToWrite), "rw");
+//		JSONArray dataArray = new JSONArray();
+//		JSONObject jsonObjEvents = new JSONObject(m_eventCounter);
+//		JSONObject jsonObjWords = new JSONObject(m_wordCounter);
+//		dataArray.put(jsonObjWords);
+//		dataArray.put(jsonObjEvents);
+//		StringBuilder writeToFile = new StringBuilder();
+//		writeToFile.append("writes: ");
+//		writeToFile.append(dataArray.toString());
+//		System.out.println(writeToFile.toString());
+//		f.seek(0); // to the beginning
+//		f.write(dataArray.toString().getBytes());
+//		f.close();
+//
+//	}
+//
+//	public static String readFromFile(String fileToRead) throws IOException {
+//
+//		// create a new RandomAccessFile with filename test
+//		RandomAccessFile raf = new RandomAccessFile(fileToRead, "rw");
+//		// write something in the file
+//		// set the file pointer at 0 position
+//		raf.seek(0);
+//		// print the line
+//		return raf.readLine();
+//
+//	}
+	public static JSONArray returnLatesetData() {
 		JSONArray dataArray = new JSONArray();
 		JSONObject jsonObjEvents = new JSONObject(m_eventCounter);
 		JSONObject jsonObjWords = new JSONObject(m_wordCounter);
 		dataArray.put(jsonObjWords);
 		dataArray.put(jsonObjEvents);
-		StringBuilder writeToFile = new StringBuilder();
-		writeToFile.append("writes: ");
-		writeToFile.append(dataArray.toString());
-		System.out.println(writeToFile.toString());
-		f.seek(0); // to the beginning
-		f.write(dataArray.toString().getBytes());
-		f.close();
-
+		return dataArray;
+		
+		
 	}
-
-	public static String readFromFile(String fileToRead) throws IOException {
-
-		// create a new RandomAccessFile with filename test
-		RandomAccessFile raf = new RandomAccessFile(fileToRead, "rw");
-		// write something in the file
-		// set the file pointer at 0 position
-		raf.seek(0);
-		// print the line
-		return raf.readLine();
-
-	}
+	
 }
